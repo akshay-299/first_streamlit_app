@@ -19,9 +19,12 @@ streamlit.multiselect("Pick Some Fruit:",list(my_fruit_list.index))
 
 streamlit.dataframe(my_fruit_list)
 
-streamlit.header("Frityvice")
+streamlit.header("Fruityvice")
 
 import requests
-responce = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(responce.json())
 
+responce = requests.get("https://fruityvice.com/api/fruit/watermelon")
+
+normalize = pandas.json_normalize(responce.json())
+
+streamlit.dataframe(normalize)
