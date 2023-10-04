@@ -28,3 +28,5 @@ responce = requests.get("https://fruityvice.com/api/fruit/watermelon")
 normalize = pandas.json_normalize(responce.json())
 
 streamlit.dataframe(normalize)
+
+import snowflake.connector
